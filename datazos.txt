@@ -1,0 +1,113 @@
+// --------------- Definir variables y objetos para llamarlos ------------------
+
+ import './App.css';
+
+ function retornarAleatorio() {
+   return Math.trunc(Math.random() * 10);
+ }
+
+ function App() {
+   const siglo = 21
+   const persona = {
+     nombre: 'Juan',
+     edad: 34
+   }
+   return (
+     <div>
+       <h1>Título nivel 1</h1>
+       <hr />
+       <p>Estamos en el siglo {siglo}</p>
+       <h3>Acceso a un objeto</h3>
+       <p>{persona.nombre} tiene {persona.edad} años</p>
+       <h3>Llamada a un método</h3>
+       <p>Un valor aleatorio llamando a un método.</p>
+       {retornarAleatorio()}
+       <h3>Calculo inmediato de expresiones</h3>
+       3 + 3 = {3 + 3}
+     </div>
+   );
+ }
+
+ export default App;
+
+
+// -----------------------------------------------------------------------------------------------------
+
+// --------------------Elementos de un array-----------------------------
+
+ import './App.css';
+
+ function retornarAleatorio() {
+   return Math.trunc(Math.random() * 10);
+ }
+
+ function App() {
+   const buscadores = ['http://www.google.com',
+     'http://www.bing.com',
+     'http://www.yahoo.com'];
+   return (
+     <div>
+       <a href={buscadores[0]}>Google</a><br />
+       <a href={buscadores[1]}>Bing</a><br />
+       <a href={buscadores[2]}>Yahoo</a><br />
+     </div>
+   );
+ }
+
+// export default App;
+
+
+
+--------------------------- Funciones con parámetros reutilizables ---------------------------------------
+
+import './App.css';
+
+function mostrarTitulo(tit) {
+return (<h1>
+     {tit}
+   </h1>);
+ }
+
+ function App() {
+   return (
+     <div>
+       {mostrarTitulo('Hola Mundo')}
+       {mostrarTitulo('Fin')}
+     </div>
+   );
+ }
+
+ export default App;
+
+
+
+//**** Importante ****
+
+hay que tener en cuenta que los nombres de las propiedades de los elementos HTML cambian en varias situaciones:
+
+Debemos utilizar la palabra 'className' en lugar de class (debido a que class es una palabra clave de Javascript):
+
+<h1 className="recuadro">Titulo 1</h1>
+Si el nombre de la propiedad está formada por más de una palabra luego el primer caracter a partir de la segunda palabra debe ir en mayúsculas:
+
+<input type="text" tabIndex="1" />
+
+Para llamar a una función en jsx pongo <Ejemplo/>
+
+function Titulo(props) {
+
+  return (
+  <div>
+  <h1>{props.titulo}</h1>
+  <h2>{props.subtitulo}</h2>
+  </div>
+  )
+}
+
+function App() {
+  return (<div>
+  <Titulo titulo='Franco' />
+  <Titulo subtitulo='te chupo todo' />
+  </div>
+  )
+}
