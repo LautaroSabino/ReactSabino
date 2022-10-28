@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import logo from '../assets/img/logo.jpg'
 import carrito from '../assets/img/carrito.png'
-import './logo.css'
+
 
 function Navbar() {
     return (

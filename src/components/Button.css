@@ -1,0 +1,12 @@
+.boton{
+    max-width: 30%;
+    margin: 0% auto;
+}
+
+a{
+    margin-right: 1rem;
+    text-decoration: none;
+    color: #333;
+    font-size: 2rem;
+    margin: 1rem;
+}

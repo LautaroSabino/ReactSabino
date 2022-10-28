@@ -1,5 +1,7 @@
 import './App.css'
+import ItemListContainer from './components/ItemListContainer'
 import Navbar from './components/Navbar'
+import Button from './components/Button'
 
 
 const Titulo = (props) => {
@@ -28,6 +30,12 @@ function App() {
   return (<div>
     <Header />
     <Navbar />
+    
+    <ItemListContainer Saludo='¡Bienvenidos a Toldos Lovetto!' />
+    <ItemListContainer SaludoSecundario='La mejor calidad en nuestros productos y servicio de colocación' />
+
+    <Button />
+
   </div>
   )
 }
