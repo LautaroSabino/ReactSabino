@@ -1,52 +1,48 @@
 import React from 'react'
-import BurguerMenu from './BurguerMenu'
 import styled from 'styled-components'
+import logo from '../assets/img/logo.jpg'
+import carrito from '../assets/img/carrito.png'
+import './logo.css'
 
 function Navbar() {
-    return (<>
+    return (
         <NavContainer>
-            <h2> NAVBAR <span>RESPONSIVE</span></h2>
+
             <div>
+                <img src={logo} alt="" />
+            </div>
+
+
+            <div className='deco'> </div>
+
+            <div className="link">
                 <a href="/"> Home </a>
                 <a href="/"> ¿Quienes somos? </a>
                 <a href="/"> Nuestros productos </a>
-                <a href="/"> Contactos </a>
-
+                <a href="/"> Contacto </a>
+                <a href="/"> <img src={carrito} alt="" /></a>
             </div>
 
-            <div className="burguer">
-                <BurguerMenu />
-            </div>
         </NavContainer>
-    </>
     )
 }
 
 export default Navbar
 
 const NavContainer = styled.nav`
-    h2{
-        color: whote;
+    .deco{
+        color: white;
         font-weight: 800; 
-        span{
-            font-weight: bold;
-        }
         padding: .4rem;
         background-color: #333;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
     }
+
     a{
         margin-right: 1rem;
         text-decoration: none;
-        color: white;
-    }
-
-    .burguer{
-        @media (min-width: 768px){
-            display: none;
-        }
+        color: #333;
+        font-size: 2rem;
+        margin: 1rem;
     }
 
 

@@ -1,11 +1,12 @@
 import './App.css'
 import Navbar from './components/Navbar'
 
+
 const Titulo = (props) => {
   return (
     <div>
       <h1>{props.titulo}</h1>
-      <h2>{props.subtitulo}</h2>
+      <h3>{props.subtitulo}</h3>
     </div>
   )
 
@@ -26,7 +27,6 @@ function App() {
 
   return (<div>
     <Header />
-    
     <Navbar />
   </div>
   )
