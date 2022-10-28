@@ -1,4 +1,5 @@
 import './App.css'
+import Navbar from './components/Navbar'
 
 const Titulo = (props) => {
   return (
@@ -13,43 +14,19 @@ const Titulo = (props) => {
 const Header = () => {
   return (
     <div>
-
-      
-      <div className="header">
+      <div >
         <Titulo titulo='Toldos Lovetto' />
         <Titulo subtitulo='tu mejor eleccion' />
-      </div>
-
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <a> Inicio </a>
-            </li>
-            <li>
-              <a> Productos</a>
-            </li>
-            <li>
-              <a> ¿Quienes somos?</a>
-            </li>
-            <li>
-              <a> Contacto</a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </div >
   )
 }
 
-
-
-
 function App() {
 
   return (<div>
     <Header />
-    <Titulo />
+    <Navbar />
   </div>
   )
 }
