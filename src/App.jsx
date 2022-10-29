@@ -1,29 +1,9 @@
 import './App.css'
-import ItemListContainer from './components/ItemListContainer'
-import Navbar from './components/Navbar'
-import Button from './components/Button'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import Navbar from './components/Navbar/Navbar'
+import Button from './components/Button/Button'
+import Header from './components/Header/Header'
 
-
-const Titulo = (props) => {
-  return (
-    <div>
-      <h1>{props.titulo}</h1>
-      <h3>{props.subtitulo}</h3>
-    </div>
-  )
-
-}
-
-const Header = () => {
-  return (
-    <div>
-      <div >
-        <Titulo titulo='Toldos Lovetto' />
-        <Titulo subtitulo='tu mejor eleccion' />
-      </div>
-    </div >
-  )
-}
 
 function App() {
 

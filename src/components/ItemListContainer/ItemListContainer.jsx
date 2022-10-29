@@ -1,5 +1,5 @@
 import React from 'react'
-import '../components/ItemListContainer.css'
+import './ItemListContainer.css'
 
 function ItemListContainer(props) {
   return ( <div>
