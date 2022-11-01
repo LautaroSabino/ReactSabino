@@ -7,16 +7,12 @@ import Header from './components/Header/Header'
 
 function App() {
 
-  const saludar = ()=>{
-    console.log('Soy la puta ama')
-  }
-
   return (<div>
     <Header />
 
     <Navbar />
     
-    <ItemListContainer greeting={'¡Bienvenidos a Toldos Lovetto!'} saludar={saludar} />
+    <ItemListContainer greeting={'¡Bienvenidos a Toldos Lovetto!'} />
     
     <Button />
 
