@@ -1,13 +1,17 @@
-import React from 'react'
 import './ItemListContainer.css'
 
-function ItemListContainer(props) {
-  return ( <div>
+const ItemListContainer = ({greeting, saludar}) => {
 
-    <h2 className='saludo'>{props.Saludo}</h2>
-    <h4 className='saludoSecu'>{props.SaludoSecundario}</h4>
- 
+  return (<div>
+
+    <div className='saludo'>
+    <h2>{greeting}</h2>
     </div>
+
+    <div className='btn boton'>
+      <button onClick={saludar}>Click me</button>
+    </div>
+  </div>
   )
 }
 

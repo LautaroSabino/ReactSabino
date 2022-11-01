@@ -1,17 +1,10 @@
-import React from 'react'
 import styled from 'styled-components'
-import logo from '../../assets/img/logo.jpg'
 import carrito from '../../assets/img/carrito.png'
 
 
 function Navbar() {
     return (
         <NavContainer>
-
-            <div>
-                <img src={logo} alt="" />
-            </div>
-
 
             <div className='deco'> </div>
 
@@ -38,7 +31,7 @@ const NavContainer = styled.nav`
     }
 
     a{
-        margin-right: 1rem;
+        margin-right: 2rem;
         text-decoration: none;
         color: #333;
         font-size: 2rem;

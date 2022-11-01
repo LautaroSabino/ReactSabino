@@ -1,12 +1,11 @@
-import React from 'react'
-import Titulo from '../Titulo/Titulo'
+import logo from '../../assets/img/logo2.png'
+import './Header.css'
 
 const Header = () => {
     return (
         <div>
-            <div >
-                <Titulo titulo='Toldos Lovetto' />
-                <Titulo subtitulo='tu mejor eleccion' />
+            <div className='logo'>
+                <img src={logo} alt="" />
             </div>
         </div >
     )
