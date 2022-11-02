@@ -31,7 +31,7 @@
  export default App;
 
 
-// -----------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------
 
 // --------------------Elementos de un array-----------------------------
 
@@ -57,8 +57,7 @@
 // export default App;
 
 
-
---------------------------- Funciones con parámetros reutilizables ---------------------------------------
+---Funciones con parámetros reutilizables-------------------------------------
 
 import './App.css';
 
@@ -112,56 +111,90 @@ function App() {
   )
 }
 
+===============================================================================
 
 si pongo rfce me hace un componente con la extensión React Snippet o algo asi.
 
+===============================================================================
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+El padre nuestro de React es:
 
+Un rerender ocurre cuando se activa un evento, cuando se cambia el estado y cuando hay un cambio en una props. 
 
+Los estados son variables evolucionadas!!
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+¿Y por qué se genera un Re Render? Porque justamente React lo que hace es renderizar el sitio por partes sin tocar el resto de la aplicación.
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+===============================================================================
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+HOOKS
+
+* { UseState } > sirve (por ahora) para salvar un valor en un estado y que al renderizarse no se pierda. 
+
+* { UseEffect } > sirve (por ahora) para que un pedazo de codigo se ejecute despues del montaje, sería hablando en criollo como si dejara un pedazo de codigo abajo de todo, luego del componente que se esta montando o renderizando. 
+
+=============================================================================
+
+A continuación, un codigo probando un contador y un boton de cambiar estado. Eso sirve para ver como funcionan los hook UseState y UseEffect
+
+import { useEffect } from 'react'
+import { useState } from 'react'
+import './ItemListContainer.css'
+
+const ItemListContainer = (props) => {
+
+  const [count, setCount] = useState(0)
+  const [bool, setBool] = useState(true)
+
+  const sumar = () => {
+    setCount(count + 1)
   }
-  a:hover {
-    color: #747bff;
+
+  const cambiarEstado = () =>{
+    setBool(!bool)
   }
-  button {
-    background-color: #f9f9f9;
-  }
+
+  useEffect(()=>{
+    
+    console.log('Se ejecuta siempre por cada render - 1')
+    
+  })
+
+  useEffect(()=>{
+    
+    console.log('Esto es una tarea pesada, llamada a API- 2')
+
+  }, [])
+
+  useEffect(()=>{
+    
+    console.log('Esto es un cambio de estado- 4')
+    console.log(bool)
+
+  }, [bool])
+
+  console.log('Esta es otra tarea - 4')
+  
+
+  return (<div>
+
+    <div className='saludo'>
+      <h2>{props.greeting}</h2>
+    </div>
+
+    <div>
+      {count}
+    </div>
+
+    <div className='btn boton'>
+      <button onClick={sumar}> + </button>
+    </div>
+
+    <div className='btn boton'>
+      <button onClick={cambiarEstado}> Cambiar estado </button>
+    </div>
+  </div>
+  )
 }
 
-  color: rgba(255, 255, 255, 0.87);
+export default ItemListContainer
