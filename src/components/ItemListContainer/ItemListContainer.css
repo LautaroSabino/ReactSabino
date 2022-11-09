@@ -3,7 +3,12 @@
     padding: 30px;
 }
 
-
 .boton{
     padding: 20px;
+}
+
+.lista{
+    margin: 20px;
+    padding: 30px;
+    background-color: blanchedalmond;
 }

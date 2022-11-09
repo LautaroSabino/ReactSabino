@@ -49,11 +49,9 @@ const ItemListContainer = (props) => {
       <button onClick={cambiarEstado}> Cambiar estado </button>
     </div>
 
-  
-
-    <div>
+    <div className='lista'>
       <ul>
-         <li>Lauti</li>
+        {[1, 2, 3].map(num => <li>{num}</li>)}
       </ul>
     </div>
 
