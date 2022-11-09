@@ -6,44 +6,30 @@ import './ItemListContainer.css'
 
 const ItemListContainer = (props) => {
 
-  gFetch
-    .then(resp => console.log(resp))
-    .catch( err => console.log(err))
-
   const [count, setCount] = useState(0)
   const [bool, setBool] = useState(true)
+  const [products, setProducts] = useState([])
 
   const sumar = () => {
     setCount(count + 1)
   }
 
-  const cambiarEstado = () =>{
+  const cambiarEstado = () => {
     setBool(!bool)
   }
 
-  useEffect(()=>{
-    
-    // console.log('Se ejecuta siempre por cada render - 1')
-    
-  })
 
-  useEffect(()=>{
-    
-    // console.log('Esto es una tarea pesada, llamada a API- 2')
+  useEffect(() => {
+
+    gFetch
+      .then(resp => setProducts(resp))
+      .catch(err => console.log(err))
+      .finally(() => console.log('Siempre'))
 
   }, [])
 
-  useEffect(()=>{
-    
-    // console.log('Esto es un cambio de estado- 4')
-    // console.log(bool)
+  console.log(products);
 
-  }, [bool])
-
-  // console.log('Esta es otra tarea - 4')
-
-
-  
 
   return (<div>
 
@@ -62,6 +48,15 @@ const ItemListContainer = (props) => {
     <div className='btn boton'>
       <button onClick={cambiarEstado}> Cambiar estado </button>
     </div>
+
+  
+
+    <div>
+      <ul>
+         <li>Lauti</li>
+      </ul>
+    </div>
+
   </div>
   )
 }
