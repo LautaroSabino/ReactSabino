@@ -8,7 +8,17 @@
 }
 
 .lista{
-    margin: 20px;
-    padding: 30px;
+    margin: 10px;
+    padding: 10px;
     background-color: blanchedalmond;
+    font-weight: 500;
+    font-size: x-large;
 }
+
+img{
+    margin: 20px;
+    padding: 10px;
+    max-height: 500px;
+    max-width: 500px;
+}
+

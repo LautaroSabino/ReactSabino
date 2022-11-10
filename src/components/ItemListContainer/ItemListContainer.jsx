@@ -4,6 +4,7 @@ import { gFetch } from '../../utils/gFetch'
 import './ItemListContainer.css'
 
 
+
 const ItemListContainer = (props) => {
 
   const [count, setCount] = useState(0)
@@ -50,9 +51,26 @@ const ItemListContainer = (props) => {
     </div>
 
     <div className='lista'>
-      <ul>
-        {[1, 2, 3].map(num => <li>{num}</li>)}
-      </ul>
+
+      {products.map(obj => <div key={obj.ID}>
+        <div className='lista'>
+          {obj.nombre}
+        </div>
+        <div className='lista'>
+          {obj.descripción}
+        </div>
+        <div className='lista'>
+          {obj.stock}
+        </div>
+        <div className='lista'>
+          {obj.precio}
+        </div>
+        <div className='fotoLista'>
+          <img src={obj.foto} alt="" />
+        </div>
+
+      </div>)}
+
     </div>
 
   </div>
