@@ -12,7 +12,7 @@ let arrayList = [{
     descripción: 'Toldo recto de lona reforzada',
     stock: 8,
     precio: 15000,
-    foto: '/assets/toldopergola.jpeg'
+    foto: '/assets/toldopergola.jpg'
 }, {
     ID: '3',
     nombre: 'TOLDO ROMANO',
