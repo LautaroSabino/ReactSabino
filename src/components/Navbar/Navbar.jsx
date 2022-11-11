@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import carrito from '../../assets/img/carrito.png'
+import carrito from '../../../public/assets/carrito.png'
 
 
 function Navbar() {
