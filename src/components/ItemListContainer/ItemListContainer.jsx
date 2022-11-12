@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import { gFetch } from '../../utils/gFetch'
 import CardWidget from '../CardWidget/CardWidget'
+import ItemList from '../ItemList/ItemList'
 import './ItemListContainer.css'
 
 
@@ -12,9 +14,12 @@ const ItemListContainer = (props) => {
   const [products, setProducts] = useState([])
   const [pokemons, setResult] = useState([]);
   const [loading, setLoading] = useState(true);
-  const url = 'https://pokeapi.co/api/v2/ability/?limit=20&offset=20';
+  const {categoriaID} = useParams()
+
+  
 
   useEffect(() => {
+    const url = 'https://pokeapi.co/api/v2/ability/?limit=20&offset=20';
     fetch(url)
       .then((respu) => respu.json())
       .then((data) => {
@@ -27,13 +32,22 @@ const ItemListContainer = (props) => {
 
   
   useEffect(() => {
-
-    gFetch
-      .then(resp => setProducts(resp))
+    if (categoriaID) {
+      gFetch
+      .then(resp => setProducts(resp.filter(prod => prod.categoria === categoriaID)))
       .catch(err => console.log(err))
       .finally(() => console.log('Siempre'))
+      
+    } else (
 
-  }, [])
+      gFetch
+        .then(resp => setProducts(resp))
+        .catch(err => console.log(err))
+        .finally(() => console.log('Siempre'))
+    )
+
+
+  }, [categoriaID])
 
   return loading ? (
     <h2>Cargando...</h2>
@@ -47,29 +61,7 @@ const ItemListContainer = (props) => {
       < CardWidget/>
 
 
-      <div className='lista'>
-
-        {products.map(obj => <div key={obj.ID}>
-          <div className='fotoLista'>
-            <img src={obj.foto} alt={obj.nombre} />
-          </div>
-          <div className='lista'>
-            {obj.nombre}
-          </div>
-          <div className='lista'>
-            {obj.descripción}
-          </div>
-          <div className='lista'>
-            {obj.stock}
-          </div>
-          <div className='lista'>
-            {obj.precio}
-          </div>
-          
-
-        </div>)}
-
-      </div>
+      <ItemList products={products} />
 
 
       <div className='lista'>

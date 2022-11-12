@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import carrito from '../../../public/assets/carrito.png'
 
@@ -9,11 +10,12 @@ function Navbar() {
             <div className='deco'> </div>
 
             <div className="link">
-                <a href="/"> Home </a>
-                <a href="/"> ¿Quienes somos? </a>
-                <a href="/"> Nuestros productos </a>
-                <a href="/"> Contacto </a>
-                <a href="/"> <img src={carrito} alt="" /></a>
+                <Link to='/'>Home</Link>
+                <Link to='/productos'>Productos</Link>
+                <Link to='/toldosimple'>Toldos Simples</Link>
+                <Link to='/toldoreforzado'>Toldos Reforzados</Link>
+                <Link to='/contacto'>Contacto</Link>
+                <Link to='/cart'><img src={carrito} alt="" /></Link>
             </div>
 
         </NavContainer>
@@ -31,7 +33,7 @@ const NavContainer = styled.nav`
     }
 
     a{
-        margin-right: 2rem;
+        margin-right: 3rem;
         text-decoration: none;
         color: #333;
         font-size: 2rem;

@@ -2,28 +2,28 @@
 let arrayList = [{
     ID: '1',
     nombre: 'TOLDO PUNTO RECTO',
-    descripción: 'Toldo plano de lona reforzada',
+    categoria: 'Lona reforzada',
     stock: 10,
     precio: 15000,
     foto: '/assets/toldoroler.jpg'
 }, {
     ID: '2',
     nombre: 'TOLDO PERGOLA',
-    descripción: 'Toldo recto de lona reforzada',
+    categoria: 'Lona reforzada',
     stock: 8,
     precio: 15000,
     foto: '/assets/toldopergola.jpg'
 }, {
     ID: '3',
     nombre: 'TOLDO ROMANO',
-    descripción: 'Toldo plano de lona sencilla',
+    categoria: 'Lona simple',
     stock: 4,
     precio: 15000,
     foto: '/assets/toldoromano.jpg'
 }, {
     ID: '4',
     nombre: 'TOLDO VELA',
-    descripción: 'Toldo roler de tela blackout',
+    categoria: 'Lona simple',
     stock: 20,
     precio: 15000,
     foto: '/assets/toldovela.jpg'
@@ -38,3 +38,12 @@ export const gFetch = new Promise((resolve, reject) => {
     }, 3000);
 
 })
+
+export const gFetch2 = (ID) => {
+
+    return new Promise((resuelto, rechazado)=>{
+        setTimeout(()=>{
+            resuelto(ID ? product.find(item => item.ID === ID) : Obj)
+        }, 2000)
+    })
+}
