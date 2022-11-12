@@ -43,7 +43,7 @@ export const gFetch2 = (ID) => {
 
     return new Promise((resuelto, rechazado)=>{
         setTimeout(()=>{
-            resuelto(ID ? product.find(item => item.ID === ID) : product)
+            resuelto(ID ? arrayList.find(item => item.ID === ID) : arrayList)
         }, 2000)
     })
 }
