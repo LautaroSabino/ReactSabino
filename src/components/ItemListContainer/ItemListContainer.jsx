@@ -5,28 +5,11 @@ import { gFetch } from '../../utils/gFetch'
 import ItemList from '../ItemList/ItemList'
 import './ItemListContainer.css'
 
-
-
 const ItemListContainer = (props) => {
 
  
   const [products, setProducts] = useState([])
-  const [loading, setLoading] = useState(true);
   const {categoriaID} = useParams()
-
-  
-
-  useEffect(() => {
-    const url = 'https://pokeapi.co/api/v2/ability/?limit=20&offset=20';
-    fetch(url)
-      .then((respu) => respu.json())
-      .then((data) => {
-        setLoading(false)
-        setResult(data.results)
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
 
   
   useEffect(() => {
@@ -47,9 +30,7 @@ const ItemListContainer = (props) => {
 
   }, [categoriaID])
 
-  return loading ? (
-    <h2>Cargando...</h2>
-  ) : (
+  return  (
     <div>
 
       <div className='saludo'>

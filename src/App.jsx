@@ -5,7 +5,6 @@ import Navbar from './components/Navbar/Navbar'
 import Header from './components/Header/Header'
 import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer'
 import Cart from './pages/Cart/Cart'
-import Nosotros from './pages/Nosotros/Nosotros'
 import Contacto from './pages/Contacto/Contacto'
 
 
@@ -21,6 +20,7 @@ function App() {
       <Route  path='/categoria/:categoriaID' element={<ItemListContainer greeting={'¡Bienvenidos a Toldos Lovetto!'} />}/>
       <Route path='/detail/:productID' element={<ItemDetailContainer />} />
       <Route path='/cart' element={<Cart />} />
+      <Route path='/contacto' element={<Contacto />} />
       <Route path='*' element= {<Navigate to = '/'/>}/>
     </Routes>
 

@@ -6,15 +6,15 @@ import { gFetch2 } from "../../utils/gFetch"
 
 const ItemDetailContainer = () => {
 
-  const {productID} = useParams()
+  const { productID } = useParams()
   const [product, setProduct] = useState({})
 
-  useEffect(()=>{
+  useEffect(() => {
     gFetch2(productID)
-    .then(resp => setProduct(resp))
-    .catch(err => console.log(err))
-    .finally(() => console.log('Siempre'))
-    
+      .then(resp => setProduct(resp))
+      .catch(err => console.log(err))
+      .finally(() => console.log('Siempre'))
+
   }, [])
 
 
@@ -22,9 +22,9 @@ const ItemDetailContainer = () => {
 
 
   return (
-    <div>
-        < ItemDetail product={product}/>
-    </div>
+
+    < ItemDetail product={product} />
+
   )
 }
 

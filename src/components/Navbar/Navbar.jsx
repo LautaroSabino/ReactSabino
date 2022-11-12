@@ -11,7 +11,6 @@ function Navbar() {
 
             <div className="link">
                 <Link to='/'>Home</Link>
-                <Link to='/productos'>Productos</Link>
                 <Link to='/toldosimple'>Toldos Simples</Link>
                 <Link to='/toldoreforzado'>Toldos Reforzados</Link>
                 <Link to='/contacto'>Contacto</Link>
