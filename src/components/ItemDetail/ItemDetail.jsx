@@ -1,19 +1,20 @@
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
+import Contador from "../Contador/Contador"
 
+const ItemDetail = ({product}) => {
 
-const ItemDetail = () => {
-
-  const {productID} = useParams()
-
-  useEffect(()=>{
-
-  }, [])
-
-
-  console.log(productID)
+ 
   return (
-    <div>ItemDetail</div>
+    <div className="row">
+      <div className="col">
+        <img src={product.foto} className='w-50' />
+        <p>Categoria: {product.categoria}</p>
+        <p>Precio: {product.precio}</p>
+        <p>Stock: {product.stock}</p>
+      </div>
+      <div className="col">
+        <Contador/>
+      </div>
+    </div>
   )
 }
 

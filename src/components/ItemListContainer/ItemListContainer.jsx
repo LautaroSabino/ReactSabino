@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { gFetch } from '../../utils/gFetch'
 import CardWidget from '../CardWidget/CardWidget'
 import ItemList from '../ItemList/ItemList'
@@ -12,7 +12,6 @@ const ItemListContainer = (props) => {
 
  
   const [products, setProducts] = useState([])
-  const [pokemons, setResult] = useState([]);
   const [loading, setLoading] = useState(true);
   const {categoriaID} = useParams()
 
@@ -62,16 +61,6 @@ const ItemListContainer = (props) => {
 
 
       <ItemList products={products} />
-
-
-      <div className='lista'>
-        {pokemons.map(obje => <div key={obje.id}>
-          <div className='lista'>{obje.name}</div>
-          <div className='lista'>{obje.url}</div>
-        </div>
-        )}
-      </div>
-
 
     </div>
   )
