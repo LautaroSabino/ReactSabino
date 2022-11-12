@@ -2,6 +2,9 @@ import Contador from "../Contador/Contador"
 
 const ItemDetail = ({product}) => {
 
+  const onAdd = (cantidad)=>{
+    console.log(cantidad);
+  }
  
   return (
     <div className="row">
@@ -12,7 +15,7 @@ const ItemDetail = ({product}) => {
         <p>Stock: {product.stock}</p>
       </div>
       <div className="col">
-        <Contador/>
+        <Contador stock={10} initial={1} onAdd={onAdd} />
       </div>
     </div>
   )

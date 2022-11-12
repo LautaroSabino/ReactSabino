@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { gFetch } from '../../utils/gFetch'
-import CardWidget from '../CardWidget/CardWidget'
 import ItemList from '../ItemList/ItemList'
 import './ItemListContainer.css'
 
@@ -56,9 +55,6 @@ const ItemListContainer = (props) => {
       <div className='saludo'>
         <h2>{props.greeting}</h2>
       </div>
-
-      < CardWidget/>
-
 
       <ItemList products={products} />
 

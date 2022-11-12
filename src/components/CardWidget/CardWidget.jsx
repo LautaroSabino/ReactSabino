@@ -1,26 +1,10 @@
-import { useState } from 'react'
+import carrito from '../../../public/assets/carrito.png'
+import { Link } from 'react-router-dom'
 
 const CardWidget = () => {
 
-    const [count, setCount] = useState(0)
-
-    const sumar = () => {
-        setCount(count + 1)
-      }
-    
-
     return (
-        <div>
-
-
-            <div>
-                {count}
-            </div>
-
-            <div className='btn boton'>
-                <button onClick={sumar}> . . . + . . .</button>
-            </div>
-        </div>
+    <Link to='/cart'><img src={carrito} alt="" /></Link>
     )
 }
 

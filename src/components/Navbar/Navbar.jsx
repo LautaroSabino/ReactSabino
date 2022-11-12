@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import carrito from '../../../public/assets/carrito.png'
+import CardWidget from '../CardWidget/CardWidget'
 
 
 function Navbar() {
@@ -15,7 +15,7 @@ function Navbar() {
                 <Link to='/toldosimple'>Toldos Simples</Link>
                 <Link to='/toldoreforzado'>Toldos Reforzados</Link>
                 <Link to='/contacto'>Contacto</Link>
-                <Link to='/cart'><img src={carrito} alt="" /></Link>
+                <CardWidget/>
             </div>
 
         </NavContainer>
