@@ -1,4 +1,5 @@
 import Contador from "../Contador/Contador"
+import Intercambiabilidad from "../Intercambiabilidad/Intercambiabilidad";
 
 const ItemDetail = ({product}) => {
 
@@ -17,6 +18,7 @@ const ItemDetail = ({product}) => {
       <div className="col">
         <Contador stock={10} initial={1} onAdd={onAdd} />
       </div>
+      <Intercambiabilidad/>
     </div>
   )
 }
