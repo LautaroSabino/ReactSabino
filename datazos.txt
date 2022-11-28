@@ -198,3 +198,25 @@ const ItemListContainer = (props) => {
 }
 
 export default ItemListContainer
+
+// TRAER UN SOLO OBJETO. 
+// useEffect(()=> {
+//     const dbFirestore = getFirestore()
+//     const queryCollection = doc(dbFirestore, 'Items', '52Ch9ggVEkHdSVNV7Fy2')
+//     getDoc(queryCollection)
+//     .then((doc)=> setProducto({id: doc.id, ... doc.data()}))
+//     .catch(err => console.log(err))
+//     .finally(() => console.log('Siempre'))
+// },[]) 
+
+// TRAER VARIOS OBJETOS
+
+useEffect(()=> {
+  const dbFirestore = getFirestore()
+  const queryCollection = collection(dbFirestore, 'Items')
+  let queryFilter= query(queryCollection, where('categoria', '==', 'Lona Reforzada'))
+  getDocs(queryFilter)
+  .then((resp)=> setProducts(resp.docs.map(doc=> ({id: doc.id, ...doc.data()}) )))
+  .catch(err => console.log(err))
+  .finally(() => console.log('Siempre'))
+},[]) 

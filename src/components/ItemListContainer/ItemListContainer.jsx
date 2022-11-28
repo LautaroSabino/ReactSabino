@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { collection, doc, getDoc, getFirestore } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { gFetch } from '../../utils/gFetch'
@@ -8,55 +8,34 @@ import './ItemListContainer.css'
 
 const ItemListContainer = (props) => {
 
-  const [producto, setProducto] = useState({})
   const [products, setProducts] = useState([])
-  const {categoriaID} = useParams()
+  const { categoriaID } = useParams()
 
-// TRAER UN SOLO OBJETO. 
-// useEffect(()=> {
-//     const dbFirestore = getFirestore()
-//     const queryCollection = doc(dbFirestore, 'Items', '52Ch9ggVEkHdSVNV7Fy2')
-//     getDoc(queryCollection)
-//     .then((doc)=> setProducto({id: doc.id, ... doc.data()}))
-//     .catch(err => console.log(err))
-//     .finally(() => console.log('Siempre'))
-// },[]) 
+  useEffect(() => {
+    const dbFirestore = getFirestore()
+    const queryCollection = collection(dbFirestore, 'Items')
 
-// TRAER VARIOS OBJETOS
+    if (categoriaID) {
+      const queryCollection = collection(dbFirestore, 'Items')
+      let queryFilter = query(queryCollection, where('categoria', '==', categoriaID))
+      getDocs(queryFilter)
+      .then((resp)=> setProducts(resp.docs.map(doc=> ({id: doc.id, ...doc.data()}) )))
+      .catch(err => console.log(err))
 
-useEffect(()=> {
-  const dbFirestore = getFirestore()
-  const queryCollection = doc(dbFirestore, 'Items', '52Ch9ggVEkHdSVNV7Fy2')
-  getDoc(queryCollection)
-  .then((doc)=> setProducto({id: doc.id, ... doc.data()}))
-  .catch(err => console.log(err))
-  .finally(() => console.log('Siempre'))
-},[]) 
+    } else (
 
+      getDocs(queryCollection)
+        .then((resp) => setProducts(resp.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
+        .catch(err => console.log(err))
+        .finally(() => console.log('Siempre'))
+        
+    )
 
-
-  
-  // useEffect(() => {
-  //   if (categoriaID) {
-  //     gFetch
-  //     .then(resp => setProducts(resp.filter(prod => prod.categoria === categoriaID)))
-  //     .catch(err => console.log(err))
-  //     .finally(() => console.log('Siempre'))
-      
-  //   } else (
-
-  //     gFetch
-  //       .then(resp => setProducts(resp))
-  //       .catch(err => console.log(err))
-  //       .finally(() => console.log('Siempre'))
-  //   )
+  }, [categoriaID])
 
 
-  // }, [categoriaID])
 
-  console.log(producto)
-
-  return  (
+  return (
     <div>
 
       <div className='saludo'>
