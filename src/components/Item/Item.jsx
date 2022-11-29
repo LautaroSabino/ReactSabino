@@ -4,21 +4,21 @@ import { Link } from "react-router-dom"
 const Item = ({product}) => {
     return (
         <div>
-            <Link to={`/detail/${product.ID}`}>
+            <Link to={`/detail/${product.id}`}>
                 <div className='fotoLista'>
-                    <img src={product.foto} alt={product.nombre} />
+                    <img src={product.Foto} alt={product.Nombre} />
                 </div>
                 <div className='lista'>
-                    {product.nombre}
+                    {product.Nombre}
                 </div>
                 <div className='lista'>
-                    {product.categoria}
+                    {product.Categoria}
                 </div>
                 <div className='lista'>
-                    {product.stock}
+                    {product.Stock}
                 </div>
                 <div className='lista'>
-                    {product.precio}
+                    {product.Precio}
                 </div>
             </Link>
 
