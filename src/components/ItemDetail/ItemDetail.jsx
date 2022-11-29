@@ -10,10 +10,10 @@ const ItemDetail = ({product}) => {
   return (
     <div className="row">
       <div className="col">
-        <img src={product.foto} className='w-50' />
-        <p>Categoria: {product.categoria}</p>
-        <p>Precio: {product.precio}</p>
-        <p>Stock: {product.stock}</p>
+        <img src={product.Foto} className='w-50' />
+        <p>Categoria: {product.Categoria}</p>
+        <p>Precio: {product.Precio}</p>
+        <p>Stock: {product.Stock}</p>
       </div>
       <div className="col">
         <Contador stock={10} initial={1} onAdd={onAdd} />

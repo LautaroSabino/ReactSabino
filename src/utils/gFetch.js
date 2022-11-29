@@ -39,11 +39,11 @@ export const gFetch = new Promise((resolve, reject) => {
 
 })
 
-export const gFetch2 = (ID) => {
+export const gFetch2 = (id) => {
 
     return new Promise((resuelto, rechazado)=>{
         setTimeout(()=>{
-            resuelto(ID ? arrayList.find(item => item.ID === ID) : arrayList)
+            resuelto(id ? arrayList.find(item => item.ID === id) : arrayList)
         }, 2000)
     })
 }

@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { collection, doc, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { gFetch } from '../../utils/gFetch'
 import ItemList from '../ItemList/ItemList'
 import './ItemListContainer.css'
 
