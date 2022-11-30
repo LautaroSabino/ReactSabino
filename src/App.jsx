@@ -18,7 +18,7 @@ function App() {
     <Routes>
       <Route  path='/' element={<ItemListContainer greeting={'¡Bienvenidos a Toldos Lovetto!'} />}/>
       <Route  path='/categoria/:categoriaID' element={<ItemListContainer greeting={'¡Bienvenidos a Toldos Lovetto!'} />}/>
-      <Route path='/detail/:productID' element={<ItemDetailContainer />} />
+      <Route path='/detail/:productId' element={<ItemDetailContainer />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/contacto' element={<Contacto />} />
       <Route path='*' element= {<Navigate to = '/'/>}/>

@@ -11,8 +11,8 @@ function Navbar() {
 
             <div className="link">
                 <Link to='/'>Home</Link>
-                <Link to='/toldosimple'>Toldos Simples</Link>
-                <Link to='/toldoreforzado'>Toldos Reforzados</Link>
+                <Link to='/categoria/Lona simple'>Toldos Simples</Link>
+                <Link to='/categoria/Lona reforzada'>Toldos Reforzados</Link>
                 <Link to='/contacto'>Contacto</Link>
                 <CardWidget/>
             </div>

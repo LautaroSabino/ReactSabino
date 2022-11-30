@@ -16,7 +16,7 @@ const ItemListContainer = (props) => {
 
     if (categoriaID) {
       const queryCollection = collection(dbFirestore, 'Items')
-      let queryFilter = query(queryCollection, where('categoria', '==', categoriaID))
+      let queryFilter = query(queryCollection, where('Categoria', '==', categoriaID))
       getDocs(queryFilter)
       .then((resp)=> setProducts(resp.docs.map(doc=> ({id: doc.id, ...doc.data()}) )))
       .catch(err => console.log(err))
