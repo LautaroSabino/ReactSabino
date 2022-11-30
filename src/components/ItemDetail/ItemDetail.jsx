@@ -1,6 +1,7 @@
 import Contador from "../Contador/Contador"
 import Intercambiabilidad from "../Intercambiabilidad/Intercambiabilidad";
 
+
 const ItemDetail = ({product}) => {
 
   const onAdd = (cantidad)=>{

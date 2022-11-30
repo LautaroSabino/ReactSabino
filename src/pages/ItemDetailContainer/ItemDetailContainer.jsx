@@ -1,22 +1,34 @@
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { gFetch2 } from "../../utils/gFetch"
+import { doc, getDoc } from 'firebase/firestore'
 
 
 const ItemDetailContainer = () => {
 
-  const { productID } = useParams()
-  const [product, setProduct] = useState({})
+  const { id } = useParams();
+  const [selectedItem, setSelectedItem] = useState()
+  const [load, setLoad] = useState(true)
+
+  const getSelected = async (idItem) => {
+    try {
+      setLoad(true)
+      const document = doc(db, "Items", idItem)
+      const response = await getDoc(document)
+      const result = { id: response.id, ...response.data() }
+
+      setSelectedItem(result)
+      setLoad(false)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
   useEffect(() => {
-    gFetch2(productID)
-      .then(resp => setProduct(resp))
-      .catch(err => console.log(err))
-      .finally(() => console.log('Siempre'))
-
-  }, [])
-
+    getSelected(id)
+  }, [id])
 
 
 
