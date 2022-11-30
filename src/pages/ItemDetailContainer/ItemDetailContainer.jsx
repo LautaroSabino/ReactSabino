@@ -14,10 +14,12 @@ const ItemDetailContainer = () => {
     const dbFirestore = getFirestore()
     const queryCollection = doc(dbFirestore, 'Items', productId)
     getDoc(queryCollection)
-      .then((doc) => setProduct({ id: doc.id, ...doc.data() }))
+      .then((doc) => setProduct({ id: doc.id, ...doc.data() }) )
       .catch(err => console.log(err))
       .finally(() => setLoading(false))
   }, [])
+
+    
 
   return (
 
