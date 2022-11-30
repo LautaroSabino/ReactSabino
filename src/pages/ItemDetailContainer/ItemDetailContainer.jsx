@@ -1,40 +1,38 @@
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { doc, getDoc } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore'
 
 
 const ItemDetailContainer = () => {
 
-  const { id } = useParams();
-  const [selectedItem, setSelectedItem] = useState()
-  const [load, setLoad] = useState(true)
-
-  const getSelected = async (idItem) => {
-    try {
-      setLoad(true)
-      const document = doc(db, "Items", idItem)
-      const response = await getDoc(document)
-      const result = { id: response.id, ...response.data() }
-
-      setSelectedItem(result)
-      setLoad(false)
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+  const [product, setProduct] = useState({})
+  const [loading, setLoading] = useState(true)
+  const { productId } = useParams()
 
   useEffect(() => {
-    getSelected(id)
-  }, [id])
-
-
+    const dbFirestore = getFirestore()
+    const queryCollection = doc(dbFirestore, 'Items', productId)
+    getDoc(queryCollection)
+      .then((doc) => setProduct({ id: doc.id, ...doc.data() }))
+      .catch(err => console.log(err))
+      .finally(() => setLoading(false))
+  }, [])
 
   return (
 
-    < ItemDetail product={product} />
+    <div>
+
+      {loading ?
+
+        <h2>Cargando...</h2>
+        :
+        < ItemDetail product={product} />
+      }
+
+
+    </div>
+
 
   )
 }
