@@ -220,3 +220,11 @@ useEffect(()=> {
   .catch(err => console.log(err))
   .finally(() => console.log('Siempre'))
 },[]) 
+
+===============================================================================
+
+Ayuda de memoria para lo que es CONTEXT
+
+create context => para crear
+provider => proveedor
+use Context => para usar
