@@ -6,7 +6,7 @@ import Header from './components/Header/Header'
 import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer'
 import Cart from './pages/Cart/Cart'
 import Contacto from './pages/Contacto/Contacto'
-import { CartContext } from './context/cartContext'
+import CartContextProvider from './context/cartContext'
 
 
 function App() {
@@ -14,18 +14,21 @@ function App() {
   return (<BrowserRouter>
 
 
+    <CartContextProvider>
 
-    <Header />
-    <Navbar />
+      <Header />
+      <Navbar />
 
-    <Routes>
-      <Route path='/' element={<ItemListContainer greeting={'¡Bienvenidos a Toldos Lovetto!'} />} />
-      <Route path='/categoria/:categoriaID' element={<ItemListContainer greeting={'¡Bienvenidos a Toldos Lovetto!'} />} />
-      <Route path='/detail/:productId' element={<ItemDetailContainer />} />
-      <Route path='/cart' element={<Cart />} />
-      <Route path='/contacto' element={<Contacto />} />
-      <Route path='*' element={<Navigate to='/' />} />
-    </Routes>
+      <Routes>
+        <Route path='/' element={<ItemListContainer/>} />
+        <Route path='/categoria/:categoriaID' element={<ItemListContainer/>} />
+        <Route path='/detail/:productId' element={<ItemDetailContainer />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/contacto' element={<Contacto />} />
+        <Route path='*' element={<Navigate to='/' />} />
+      </Routes>
+
+    </CartContextProvider>
 
 
 
