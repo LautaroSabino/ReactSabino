@@ -16,11 +16,22 @@ const CartContextProvider = ({ children }) => {
         setCartList([])
     }
 
+    const precioTotal = ()=>{
+        return cartList.reduce((sumPrecio, producto)=> sumPrecio += (producto.cantidad*producto.Precio))
+    }
+
+    const eliminarPorItem = ()=>{
+        
+    }
+
+
     return (
         <CartContext.Provider value={{
             cartList,
             agregarAlCarrito,
-            borrarCarrito
+            borrarCarrito,
+            precioTotal
+            
         }}>
 
             {children}

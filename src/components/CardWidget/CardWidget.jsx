@@ -1,10 +1,14 @@
 import carrito from '/assets/carrito.png'
 import { Link } from 'react-router-dom'
 
+
 const CardWidget = () => {
 
     return (
-    <Link to='/cart'><img src={carrito} alt="" /></Link>
+
+
+        <Link to='/cart'><img src={carrito} alt="" /></Link>
+
     )
 }
 
