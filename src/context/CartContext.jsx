@@ -16,12 +16,12 @@ const CartContextProvider = ({ children }) => {
         setCartList([])
     }
 
-    const precioTotal = ()=>{
-        return cartList.reduce((sumPrecio, producto)=> sumPrecio += (producto.cantidad*producto.Precio))
-    }
+    // const precioTotal = ()=>{
+    //     return cartList.reduce((sumPrecio, producto)=> sumPrecio += (producto.cantidad * producto.Precio), 0)
+    // }
 
-    const eliminarPorItem = ()=>{
-        
+    const eliminarPorItem = (id)=>{
+        setCartList( cartList.filter(producto => producto.id =! id))
     }
 
 
@@ -30,7 +30,8 @@ const CartContextProvider = ({ children }) => {
             cartList,
             agregarAlCarrito,
             borrarCarrito,
-            precioTotal
+            eliminarPorItem
+            
             
         }}>
 
