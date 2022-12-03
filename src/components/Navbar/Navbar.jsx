@@ -18,7 +18,7 @@ function Navbar() {
                 <Link to='/categoria/Lona simple'>Toldos Simples</Link>
                 <Link to='/categoria/Lona reforzada'>Toldos Reforzados</Link>
                 <CardWidget />
-                <p>Cantidad total: {cantidadTotal} </p>
+                <p>Cantidad total: {cantidadTotal()} </p>
             </div>
 
         </NavContainer>

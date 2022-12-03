@@ -9,7 +9,7 @@ const ItemDetail = ({ product }) => {
 
   const onAdd = (cantidad) => {
     console.log(cantidad);
-    agregarAlCarrito({ product, cantidad })
+    agregarAlCarrito({ ...product, cantidad })
   }
 
   console.log(cartList);
