@@ -16,11 +16,11 @@ const CartContextProvider = ({ children }) => {
         let index = isInCart(newProductCart.id)
 
         if (index === -1) {
-            setCartList( [...cartList, newProductCart] )
+            setCartList([...cartList, newProductCart])
 
         } else {
             cartList[index].cantidad += newProductCart.cantidad
-            setCartList( [...cartList] )
+            setCartList([...cartList])
         }
     }
 
@@ -28,9 +28,14 @@ const CartContextProvider = ({ children }) => {
         setCartList([])
     }
 
-    // const precioTotal = ()=>{
-    //     return cartList.reduce((sumPrecio, producto)=> sumPrecio += (producto.cantidad * producto.Precio), 0)
-    // }
+    const cantidadTotal = () => {
+        return cartList.reduce((count, producto) => count += producto.cantidad, 0)
+    }
+
+    const precioTotal = () => {
+        return cartList.reduce((count, producto)=> count += producto.cantidad, 0)
+    }
+
 
     const eliminarPorItem = (id) => {
         setCartList(cartList.filter(producto => producto.id !== id))
@@ -39,9 +44,12 @@ const CartContextProvider = ({ children }) => {
 
     return (
         <CartContext.Provider value={{
+            products,
             cartList,
             agregarAlCarrito,
             borrarCarrito,
+            precioTotal,
+            cantidadTotal,
             eliminarPorItem
 
 

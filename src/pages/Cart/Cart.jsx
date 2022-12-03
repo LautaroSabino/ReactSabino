@@ -1,8 +1,9 @@
 import { useCartContext } from "../../context/cartContext"
+import './Cart.css'
 
 const Cart = () => {
 
-  const { cartList, borrarCarrito, eliminarPorItem } = useCartContext()
+  const { cartList, borrarCarrito, precioTotal, eliminarPorItem } = useCartContext()
 
   return (
     <div>
@@ -19,6 +20,7 @@ const Cart = () => {
       </ul>
       
       <button onClick={borrarCarrito} className="btn btn-outline-danger"> Vaciar el Carrito</button>
+      <button  className="btn btn-outline-success"> COMPRAR</button>
     </div>
   )
 }

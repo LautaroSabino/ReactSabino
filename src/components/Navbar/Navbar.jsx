@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { useCartContext } from '../../context/cartContext'
 import CardWidget from '../CardWidget/CardWidget'
 
 
 function Navbar() {
 
-    
+    const { cantidadTotal } = useCartContext()
 
     return (
         <NavContainer>
@@ -16,8 +17,8 @@ function Navbar() {
                 <Link to='/'>Home</Link>
                 <Link to='/categoria/Lona simple'>Toldos Simples</Link>
                 <Link to='/categoria/Lona reforzada'>Toldos Reforzados</Link>
-                <Link to='/contacto'>Contacto</Link>
-                <CardWidget/>
+                <CardWidget />
+                <p>Cantidad total: {cantidadTotal} </p>
             </div>
 
         </NavContainer>
@@ -35,11 +36,11 @@ const NavContainer = styled.nav`
     }
 
     a{
-        margin-right: 3rem;
+        margin-right: 1rem;
         text-decoration: none;
         color: #333;
         font-size: 2rem;
-        margin: 1rem;
+        margin: 2rem;
     }
 
 

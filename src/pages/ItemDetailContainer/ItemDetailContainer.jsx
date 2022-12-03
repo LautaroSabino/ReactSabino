@@ -1,7 +1,7 @@
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import {  doc, getDoc, getFirestore } from 'firebase/firestore'
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 
 
 const ItemDetailContainer = () => {
@@ -14,19 +14,21 @@ const ItemDetailContainer = () => {
     const dbFirestore = getFirestore()
     const queryCollection = doc(dbFirestore, 'Items', productId)
     getDoc(queryCollection)
-      .then((doc) => setProduct({ id: doc.id, ...doc.data() }) )
+      .then((doc) => setProduct({ id: doc.id, ...doc.data() }))
       .catch(err => console.log(err))
       .finally(() => setLoading(false))
   }, [productId])
 
-    
+
 
   return (
 
     <div>
 
-      {loading ?
+      {loading
+        ?
         <h2>Cargando...</h2>
+
         :
         < ItemDetail product={product} />
       }

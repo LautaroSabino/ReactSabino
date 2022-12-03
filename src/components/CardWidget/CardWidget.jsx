@@ -6,8 +6,13 @@ const CardWidget = () => {
 
     return (
 
+        <div>
 
-        <Link to='/cart'><img src={carrito} alt="" /></Link>
+            <Link to='/cart'><img src={carrito} alt="" /></Link>
+
+        </div>
+
+
 
     )
 }
