@@ -8,8 +8,20 @@ export const useCartContext = () => useContext(CartContext)
 const CartContextProvider = ({ children }) => {
 
     const [cartList, setCartList] = useState([])
+
+    const isInCart = (id) => cartList.findIndex(producto => producto.id === id)
+
     const agregarAlCarrito = (newProductCart) => {
-        setCartList( [...cartList, newProductCart] )
+
+        let index = isInCart(newProductCart.id)
+
+        if (index === -1) {
+            setCartList( [...cartList, newProductCart] )
+
+        } else {
+            cartList[index].cantidad += newProductCart.cantidad
+            setCartList( [...cartList] )
+        }
     }
 
     const borrarCarrito = () => {
@@ -20,8 +32,8 @@ const CartContextProvider = ({ children }) => {
     //     return cartList.reduce((sumPrecio, producto)=> sumPrecio += (producto.cantidad * producto.Precio), 0)
     // }
 
-    const eliminarPorItem = (id)=>{
-        setCartList( cartList.filter(producto => producto.id =! id))
+    const eliminarPorItem = (id) => {
+        setCartList(cartList.filter(producto => producto.id !== id))
     }
 
 
@@ -31,8 +43,8 @@ const CartContextProvider = ({ children }) => {
             agregarAlCarrito,
             borrarCarrito,
             eliminarPorItem
-            
-            
+
+
         }}>
 
             {children}
