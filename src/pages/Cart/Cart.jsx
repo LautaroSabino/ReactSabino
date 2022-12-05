@@ -7,12 +7,12 @@ import './Cart.css'
 const Cart = () => {
 
 
-  const { dataForm, setDataForm } = useState({
+  const [dataForm, setDataForm] = useState({
     name: '',
     email: '',
     telefono: ''
   })
-  
+
   const { cartList, borrarCarrito, precioTotal, eliminarPorItem } = useCartContext()
 
   const generarOrden = (evt) => {
@@ -66,16 +66,15 @@ const Cart = () => {
         <label htmlFor=""> {precioTotal()} </label>
         <button onClick={borrarCarrito} className="btn btn-outline-danger"> Vaciar el Carrito</button>
 
-        <form
-          onSubmit={generarOrden}>
+        <form onSubmit={generarOrden}>
 
-          <input type="text" name="name" onChange={handleOnChange} value={dataForm.name}  placeholder="Ingrese nombre" />
-          <input type="text" name='email' onChange={handleOnChange} value={dataForm.email}  placeholder="Ingrese email" />
-          <input type="text" name='telefono' onChange={handleOnChange} value={dataForm.telefono}  placeholder="Ingrese teléfono" />
-
-        </form>
+          <input type="text" name="name" value={dataForm.name} onChange={handleOnChange} placeholder="Ingrese su nombre" />
+          <input type="text" name="telefono" value={dataForm.telefono} onChange={handleOnChange} placeholder="Ingrese su telefono" />
+          <input type="text" name="email" value={dataForm.email} onChange={handleOnChange} placeholder="Ingrese su email" />
 
           <button onClick={generarOrden} className="btn btn-outline-success"> COMPRAR</button>
+        </form>
+
       </>
 
         :
