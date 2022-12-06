@@ -63,6 +63,7 @@ const Cart = () => {
           </li>
           )}
         </ul>
+        <label htmlFor="">Precio total de la compra : </label>
         <label htmlFor=""> {precioTotal()} </label>
         <button onClick={borrarCarrito} className="btn btn-outline-danger"> Vaciar el Carrito</button>
 

@@ -18,8 +18,8 @@ const ItemListContainer = () => {
       const queryCollection = collection(dbFirestore, 'Items')
       let queryFilter = query(queryCollection, where('Categoria', '==', categoriaID))
       getDocs(queryFilter)
-      .then((resp)=> setProducts(resp.docs.map(doc=> ({id: doc.id, ...doc.data()}) )))
-      .catch(err => console.log(err))
+        .then((resp) => setProducts(resp.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
+        .catch(err => console.log(err))
 
     } else (
 
@@ -27,7 +27,7 @@ const ItemListContainer = () => {
         .then((resp) => setProducts(resp.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
         .catch(err => console.log(err))
         .finally(() => console.log('Siempre'))
-        
+
     )
 
   }, [categoriaID])
