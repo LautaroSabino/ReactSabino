@@ -36,7 +36,6 @@ const CartContextProvider = ({ children }) => {
         return cartList.reduce((sumPrecio, producto) => sumPrecio += producto.cantidad * producto.Precio, 0)
     }
 
-
     const eliminarPorItem = (id) => {
         setCartList(cartList.filter(producto => producto.id !== id))
     }
